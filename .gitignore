@@ -1,0 +1,19 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# C build
+*.o
+*.out
+*.exe
+
+# Build directories
+build/
+bin/
+
+# Logs
+*.log
