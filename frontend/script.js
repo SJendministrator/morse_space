@@ -21,5 +21,42 @@ function createMorseTable(data, targetId) {
     target.appendChild(table);
 }
 
-createMorseTable(morseTables.english, "english-table");
-createMorseTable(morseTables.number, "number-table");
+createMorseTable(morseTables.english, "morse-table");
+
+
+let pressStartTime = null;
+let currentMorse = "";
+
+const SHORT_LIMIT = 250;
+
+document.addEventListener("keydown", (event) => {
+    if (event.code !== "Space" || event.repeat) {
+        return;
+    }
+
+    pressStartTime = performance.now();
+});
+
+document.addEventListener("keyup", (event) => {
+    if (event.code !== "Space" || pressStartTime === null) {
+        return;
+    }
+
+    const pressDuration = performance.now() - pressStartTime;
+
+    let symbol;
+
+    if (pressDuration < SHORT_LIMIT) {
+        symbol = ".";
+    } else {
+        symbol = "-";
+    }
+
+    currentMorse += symbol;
+
+    console.log(`입력 시간: ${pressDuration.toFixed(2)}ms`);
+    console.log(`판정: ${symbol}`);
+    console.log(`현재 Morse: ${currentMorse}`);
+
+    pressStartTime = null;
+});
