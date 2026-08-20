@@ -2,6 +2,8 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Morse Space</title>
 </head>
 
@@ -15,9 +17,9 @@
 
     <main>
 
-        <!-- Spacebar 입력 영역 -->
+        <!-- Morse 입력 -->
         <section id="input-section">
-            <h2>Input</h2>
+            <h2>Morse Input</h2>
 
             <div id="space-status">
                 Spacebar를 눌러주세요
@@ -33,17 +35,26 @@
         </section>
 
 
-        <!-- 현재 입력 결과 -->
+        <!-- 현재 입력 및 해석 결과 -->
         <section id="result-section">
             <h2>Result</h2>
 
-            <div id="current-morse">
-                -
+            <div>
+                <h3>Current Morse</h3>
+                <div id="current-morse">-</div>
             </div>
 
-            <div id="decoded-text">
-                -
+            <div>
+                <h3>Decoded Text</h3>
+                <div id="decoded-text">-</div>
             </div>
+            <button type="button" id="backspace">
+    ← 지우기
+</button>
+
+<button type="button" id="clear-result">
+    전체 삭제
+</button>
         </section>
 
 
@@ -51,7 +62,7 @@
         <section id="morse-section">
             <h2>Morse Code Table</h2>
 
-            <div id="morse-category">
+            <nav id="morse-category">
                 <button type="button" data-category="english">
                     English
                 </button>
@@ -63,7 +74,7 @@
                 <button type="button" data-category="number">
                     Number
                 </button>
-            </div>
+            </nav>
 
             <div id="morse-table">
                 <!-- JavaScript가 테이블을 생성 -->
@@ -85,6 +96,11 @@
         </section>
 
     </main>
+
+
+    <footer>
+        <p>Morse Space</p>
+    </footer>
 
 
     <script src="data/morse.js"></script>
